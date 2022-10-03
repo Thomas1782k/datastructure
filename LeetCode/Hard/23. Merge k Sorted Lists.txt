@@ -1,0 +1,23 @@
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        
+        ListNode head=new ListNode(0);
+        ListNode temp=head;
+        
+        List<Integer> l=new ArrayList<Integer>();
+        
+        for(ListNode lst:lists){
+            while(lst!=null){
+                l.add(lst.val);
+                lst=lst.next;
+            }
+        }
+        Collections.sort(l);
+        for(int val:l){
+            temp.next=new ListNode(val);
+            temp=temp.next;
+        }
+        
+        return head.next;
+    }
+}
