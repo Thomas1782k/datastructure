@@ -1,0 +1,19 @@
+class Solution {
+    public int minCost(String s, int[] nt) {
+       
+        int j=0,i=0,t=0,n=s.length();
+        
+        while(i<n && j<n){
+            int cut=0,max=0;
+            
+            while(j<n && s.charAt(i)==s.charAt(j)){
+                max=Math.max(max,nt[j]);
+                cut+=nt[j];
+                j++;
+            }
+            i=j;
+            t+=(cut-max);
+        }
+        return t;
+    }
+}
