@@ -1,9 +1,9 @@
 class Solution {
     public String addBinary(String a, String b) {
-//        long  l1=(long)Integer.parseInt(a,2);
-//        long  l2=(long)Integer.parseInt(b,2);
+//        int l1=Integer.parseInt(a,2);
+//        int l2=Integer.parseInt(b,2);
         
-//         return Integer.toBinaryString((int)(l1+l2));
+//         return Integer.toBinaryString((l1+l2));
         
 
         
