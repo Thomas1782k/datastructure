@@ -1,0 +1,35 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+       List<List<Integer>> res=new ArrayList();
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length;i++){
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            find(i,nums,res);
+        }
+        return res;
+    }
+    
+    public void find(int k,int[] arr,List<List<Integer>> res){
+        
+        int i=k+1;
+        int a=arr[k];
+        int j=arr.length-1;
+        while(i<j){
+            int b=arr[i]+arr[j];
+            if(a+b>0) j--;
+            else if(a+b<0) i++;
+            else if(a+b==0){
+                ArrayList ll=new ArrayList();
+                ll.add(arr[k]);
+                ll.add(arr[j]);
+                ll.add(arr[i]);
+                res.add(ll);
+                i++;
+                j--;
+                while(i<j && arr[i]==arr[i-1]){i++;}
+            while(i<j && arr[j]==arr[j+1]){j--;}
+            }
+        }
+    }
+}
+
