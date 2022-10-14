@@ -1,0 +1,23 @@
+class TimeMap {
+
+    Map<String,TreeMap<Integer,String>> map; // map with Internal TreeMap for floor values
+    public TimeMap() {
+        map = new HashMap<>(); //init map
+    }
+    
+    public void set(String key, String value, int timestamp) {
+        if(!map.containsKey(key)) map.put(key, new TreeMap<>()); //if key is not present add entry.
+        map.get(key).put(timestamp, value); //add value as <timestamp, value>
+    }
+    
+    public String get(String key, int timestamp) {
+        if(!map.containsKey(key)) return ""; //if key not present return empty;
+        
+        //if timestamp exists return value of that. 
+        if(map.get(key).containsKey(timestamp)) return map.get(key).get(timestamp); 
+        
+        //floorKey ie. if key is present that key else just smaller than that
+        Integer fKey = map.get(key).floorKey(timestamp); 
+        return fKey != null ? map.get(key).get(fKey) : "";  //if no floorkey reutrn empty string
+    }
+}
