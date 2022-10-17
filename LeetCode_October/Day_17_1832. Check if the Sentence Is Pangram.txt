@@ -1,0 +1,14 @@
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        TreeSet<Character> set1=new TreeSet<Character>();
+        TreeSet<Character> set2=new TreeSet<Character>();
+        for(char ch='a';ch<='z';ch++)
+            set1.add(ch);
+        sentence=sentence.toLowerCase();
+        for(int i=0;i<sentence.length();i++)
+            set2.add(sentence.charAt(i));
+        
+        if(set1.equals(set2)) return true;
+        return false;
+    }
+}
