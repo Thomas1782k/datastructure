@@ -3,7 +3,6 @@ class Solution {
         if(head==null)return null;
         if(head.next==null) return head;
         ListNode swap=head;
-        ListNode last=null;
          
         while(swap!=null){
             System.out.print(swap.val);
