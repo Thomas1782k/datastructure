@@ -1,0 +1,17 @@
+class Solution {
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        String op1="";
+        String op2="";
+        for(String s: word1)
+            op1+=s;
+        
+        for(String s: word2 )
+            op2+=s;
+        
+        if(op1.length()!=op2.length()) return false;
+        
+        if(op1.equals(op2)) return true;
+        
+        return false;
+    }
+}
