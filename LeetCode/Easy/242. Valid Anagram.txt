@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        //Approach 1:
+//         if(s.length()!=t.length()) return false;
+//         TreeMap<Character,Integer> l1=new TreeMap<>();
+//         TreeMap<Character,Integer> l2=new TreeMap<>();
+//         for(int i=0;i<s.length();i++){
+//             l1.put(s.charAt(i),l1.getOrDefault(s.charAt(i),0)+1);
+//             l2.put(t.charAt(i),l2.getOrDefault(t.charAt(i),0)+1);
+//         }
+
+//         if(l1.equals(l2))
+//          return true;
+//         else
+//             return false;
+        
+        //Approach 2:
+        if(s.length()!=t.length())
+        return false;
+        int c[]=new int[256];
+        for(int i=0;i<s.length();i++){
+            c[s.charAt(i)]++;
+            c[t.charAt(i)]--;
+        }
+         for(int i=0;i<256;i++){
+            if(c[i]!=0)
+            return false;
+        }
+    return true;
+    }
+}
