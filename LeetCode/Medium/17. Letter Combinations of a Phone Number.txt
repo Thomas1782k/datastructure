@@ -1,0 +1,20 @@
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        LinkedList<String> op=new LinkedList<>();
+        if(digits.length()==0) return op;
+        op.add("");
+        String[] val=new String[] {"0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+       
+        for(int i=0;i<digits.length();i++){
+            int index=Character.getNumericValue(digits.charAt(i));
+            while(op.peek().length()==i){
+                String per=op.remove();
+                for(char c:val[index].toCharArray()){
+                    op.add(per+c);
+                }
+            }
+        }
+        
+        return op;
+    }
+}
