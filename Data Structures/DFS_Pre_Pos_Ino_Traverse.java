@@ -1,10 +1,6 @@
 package com.ds.BinarySearchTree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import com.ds.BinarySearchTree.BFS_Tree.Node;
+import java.util.*;
 
 public class DFS_Pre_Pos_Ino_Traverse {
 
