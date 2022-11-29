@@ -1,0 +1,29 @@
+class RandomizedSet {
+
+    private LinkedHashSet<Integer> hs;
+    public RandomizedSet() {
+        hs=new LinkedHashSet<>();
+    }
+    
+    public boolean insert(int val) {
+        if(!hs.contains(val)){
+         hs.add(val);
+         return true;
+        }
+        return false;
+    }
+    
+    public boolean remove(int val) {
+        if(!hs.contains(val)){
+         return false;
+        }
+        hs.remove(val); 
+        return true;
+    }
+    
+    public int getRandom() {
+        List<Integer> l=new ArrayList<>(hs);
+        int r=(int)(Math.random()*l.size());
+        return l.get(r);
+    }
+}
