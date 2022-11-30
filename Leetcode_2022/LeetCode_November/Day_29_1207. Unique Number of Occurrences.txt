@@ -1,0 +1,15 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        HashMap<Integer,Integer> v=new HashMap<>();
+        for(int i:arr){
+            hm.put(i,hm.getOrDefault(i,0)+1);
+        }
+        for(Map.Entry<Integer,Integer> en:hm.entrySet()){
+            if(v.containsKey(en.getValue())) return false;
+            else v.put(en.getValue(),1);
+        }
+
+        return true;
+    }
+}
