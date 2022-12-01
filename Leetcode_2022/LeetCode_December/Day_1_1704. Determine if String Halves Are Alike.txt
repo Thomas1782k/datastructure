@@ -1,0 +1,23 @@
+class Solution {
+
+     char[] ch={'a','e','i','o','u','A','E','I','O','U'};
+   static ArrayList<Character> l=new ArrayList<>();
+
+    public boolean halvesAreAlike(String s) {
+        for(char a: ch){
+           l.add(a);
+        }
+        String s1=s.substring(0,s.length()/2);
+        String s2=s.substring(s.length()/2,s.length());
+        System.out.print(l);
+        return count(s1)==count(s2);
+    }
+    static int count(String s){
+        int c=0;
+        for(int i=0;i<s.length();i++){
+            if(l.contains(s.charAt(i)))
+            c++;
+        }
+        return c;
+    }
+}
