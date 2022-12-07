@@ -1,0 +1,19 @@
+class Solution {
+    public int rangeSumBST(TreeNode root, int l, int h) {
+        int s=0;
+        Stack<TreeNode> st=new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            TreeNode node=st.pop();
+            if(node.val >=l && node.val<=h)
+            s+=node.val;
+
+            if(node.val >=l && node.left !=null)
+            st.push(node.left);
+
+            if(node.val <=h && node.right!=null)
+            st.push(node.right);
+        }
+        return s;
+    }
+}
