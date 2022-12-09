@@ -1,0 +1,20 @@
+class Solution {
+    int ans = 0;
+    public int maxAncestorDiff(TreeNode root) {
+        visit(root, new ArrayList<>());
+        return ans;
+    }
+    
+    private void visit(TreeNode node, List<TreeNode> parents) {
+        if (node == null)
+            return;
+
+        for (TreeNode prev : parents)
+            ans = Math.max(ans, Math.abs(prev.val - node.val));
+
+        parents.add(node);
+        visit(node.left, parents);
+        visit(node.right, parents);
+        parents.remove(parents.size() - 1);
+    }
+}
